@@ -24,7 +24,7 @@ public class Pizza {
 	private double prezzo;
 	
 	public Pizza() { }
-	public Pizza(String name, String descrizione, String foto, double prezzo) {
+	public Pizza(String nome, String descrizione, String foto, double prezzo) {
 		
 		setNome(nome);
 		setDescrizione(descrizione);

@@ -1,24 +1,33 @@
 package org.java.spring;
 
+import org.java.spring.db.pojo.Pizza;
+import org.java.spring.db.service.PizzaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringLaMiaPizzeriaCrudApplication {
+public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner{
 
+	@Autowired
+	private PizzaService pizzaService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringLaMiaPizzeriaCrudApplication.class, args);
 	}
 
-//	@Override
-//	public void run(String... args) throws Exception {
-//	
-//		bookService.save(new Book("My Best Java Book 1", "Guybrush", "123423423"));
-//		bookService.save(new Book("My Best Java Book 2", "Guybrush", "123423424"));
-//		bookService.save(new Book("My Best Java Book 3", "Guybrush", "123423425"));
-//		bookService.save(new Book("My Best Java Book 4", "Guybrush", "123423426"));
-//		bookService.save(new Book("My Best Java Book 5", "Guybrush", "123423427"));
-//		bookService.save(new Book("My Best Java Book 6", "Guybrush", "123423428"));
-//		bookService.save(new Book("My Best Java Book 7", "Guybrush", "123423429"));
-//	}
+
+	@Override
+	public void run(String... args) throws Exception {
+	
+		pizzaService.save(new Pizza("Margherita", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200", 6.99));
+		pizzaService.save(new Pizza("Marinara", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200/300", 8));
+		pizzaService.save(new Pizza("Bufala", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200/300", 18));
+		pizzaService.save(new Pizza("Funghi", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200/300", 15.50));
+		pizzaService.save(new Pizza("Salsiccia", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200/300", 6.30));
+		pizzaService.save(new Pizza("Capricciosa", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200/300", 10.50));
+		pizzaService.save(new Pizza("Carbonara", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200/300", 22.80));
+		pizzaService.save(new Pizza("4 Formaggi", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200/300", 10.50));
+	}
 }

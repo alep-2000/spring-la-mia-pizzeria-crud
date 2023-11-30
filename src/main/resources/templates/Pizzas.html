@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+	<meta charset="ISO-8859-1">
+	<title>Best Pizzas</title>
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
 </head>
-<body>
-
+<body class="bg-secondary-subtle">
+	<h1 class="text-center">Pizzas:</h1>
+	
+	<div class="container">
+		<div class="row g-0">
+			<div 	
+				th:each="pizza : ${pizzas}"
+				th:object="${pizza}"
+				class="card m-3 d-flex col-12 col-md-4 col-md-3" style="width: 18rem;">
+			  <img th:src="*{foto}" class="card-img-top" alt="..." style="height: 14rem; max-width: 18rem;">
+			  <div class="card-body text-center">
+				  <a
+						th:href="@{/pizzas/{id}(id=*{id})}"
+					>
+				    	<h5 class="card-title">[[*{nome}]]</h5>								
+					</a>
+			    <p class="card-text">[[*{descrizione}]]</p>
+			  </div>
+			  <p class="text-center">[[*{prezzo}]]€</p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
