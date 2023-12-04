@@ -11,12 +11,13 @@
 		th:fragment="button(link, title)"
 		th:href="${link}"
 		th:text="${title}"
-		class="btn btn-dark"
+		class="btn btn-success"
 		>
 	</a>
 	
 	<div th:fragment="errorDiv(field)"
-		th:if="${#fields.hasErrors(field)}">
+		th:if="${#fields.hasErrors(field)}"
+		class="alert alert-danger">
 		<ul>
 		   <li 
 		   		th:each="err : ${#fields.errors(field)}">

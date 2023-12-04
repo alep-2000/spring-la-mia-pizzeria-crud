@@ -1,5 +1,7 @@
 package org.java.spring.db.pojo;
 
+
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
@@ -29,10 +31,10 @@ public class Pizza {
 	private String descrizione;
 	
 	@URL(protocol = "https")
-	@NotBlank(message = "L/'url non può essere nullo")
+	@NotBlank(message = "Url non può essere nullo")
 	private String foto;
 	
-	@PositiveOrZero(message = "Puoi inserire un numero positivo o uguale a 0") 
+	@PositiveOrZero(message = "Puoi inserire solamente un numero positivo o uguale a 0") 
 	private double prezzo;
 	
 	public Pizza() { }

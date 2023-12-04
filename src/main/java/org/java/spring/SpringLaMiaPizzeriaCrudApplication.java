@@ -1,5 +1,7 @@
 package org.java.spring;
 
+
+
 import org.java.spring.db.pojo.Pizza;
 import org.java.spring.db.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +14,17 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner{
 
 	@Autowired
 	private PizzaService pizzaService;
-	
+		
 	public static void main(String[] args) {
 		SpringApplication.run(SpringLaMiaPizzeriaCrudApplication.class, args);
+		
 	}
 
 
 	@Override
 	public void run(String... args) throws Exception {
 	
+		
 		pizzaService.save(new Pizza("Margherita", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200", 6.99));
 		pizzaService.save(new Pizza("Marinara", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200/300", 8));
 		pizzaService.save(new Pizza("Bufala", "Una buona pizza con ingredienti freschi", "https://picsum.photos/200/300", 18));

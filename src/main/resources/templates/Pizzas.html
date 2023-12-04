@@ -9,39 +9,41 @@
 	<div class="container">
 		<div class="row mb-3">
 			<div class="col-12">
-				<h1 class="text-center">Pizzas:</h1>
+				<h1 class="text-center mt-2 mb-5 text-white">Pizzas:</h1>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12">
-				<form>
-				  <div class="mb-3">
-				    <input type="text" class="form-control" id="search" name="p" th:value="${p}">
-				  </div>
-				  <button type="submit" class="btn btn-primary" value="SEARCH">Cerca pizza</button>
-				</form>
-			</div>
-		</div>
-		<div class="row my-3">
-			<div class="col-12">
-				<a href="/pizzas/create">
-					<button class="btn btn-success">
-						Crea Nuova Pizza
-					</button>									
-				</a>					
+		<div class="row d-flex justify-content-center mb-5">
+			<div class="col-12 col-md-6">
+				<div class="bg-primary p-5 rounded-3">
+					<form class="d-flex">
+					  <div class="mb-3 me-3">
+					    <input type="text" class="form-control" id="search" name="p" th:value="${p}">
+					  </div>
+					  <div>
+					  	<button type="submit" class="btn btn-warning text-white" value="SEARCH">Cerca pizza</button>
+					  </div>
+					</form>					
+					<div>				
+						<a href="/pizzas/create">
+							<button class="btn btn-success">
+								Crea Nuova Pizza
+							</button>									
+						</a>										
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="row g-0">
 			<div 	
 				th:each="pizza : ${pizzas}"
 				th:object="${pizza}"
-				class="card m-3 d-flex col-12 col-md-4 col-md-3" style="width: 18rem;">
+				class="card m-3 d-flex col-12 col-md-4 col-lg-3" style="width: 18rem;">
 			  <img th:src="*{foto}" class="card-img-top" alt="..." style="height: 14rem; max-width: 18rem;">
 			  <div class="card-body text-center">
 				  <a
 						th:href="@{/pizzas/{id}(id=*{id})}"
 					>
-				    	<h5 class="card-title">[[*{nome}]]</h5>								
+				    	<h5 class="card-title badge text-bg-primary">[[*{nome}]]</h5>								
 					</a>
 			    <p class="card-text">[[*{descrizione}]]</p>
 			  </div>

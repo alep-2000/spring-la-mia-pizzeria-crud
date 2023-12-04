@@ -9,7 +9,7 @@
 	th:object="${pizza}"
 	class="bg-secondary-subtle"
 >
-	<h1 class="text-center" th:text="|[*{id}] Pizza:|"></h1>
+	<h1 class="text-center mt-2 mb-5 text-white" th:text="|[*{id}] Pizza:|"></h1>
 	<div class="container">
 		<div class="me-2">
 			<div th:insert="frags :: button('/', 'Pizzas')"></div>							
