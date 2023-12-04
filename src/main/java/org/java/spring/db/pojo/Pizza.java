@@ -1,10 +1,15 @@
 package org.java.spring.db.pojo;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
 
 @Entity
 public class Pizza {
@@ -14,13 +19,20 @@ public class Pizza {
 	private int id;
 	
 	@Column(length = 60)
+	@Length(min = 3, max = 60, message = "Il nome deve essere compreso tra 3 e 60 caratteri")
+	@NotBlank(message = "Il nome non può essere nullo")
 	private String nome;
 	
 	@Column(columnDefinition = "TEXT")
+	@Length(min = 3, message = "La descrizione deve essere lungo minino 3 caratteri")
+	@NotBlank(message = "La descrizione non può essere nulla")
 	private String descrizione;
 	
+	@URL(protocol = "https")
+	@NotBlank(message = "L/'url non può essere nullo")
 	private String foto;
 	
+	@PositiveOrZero(message = "Puoi inserire un numero positivo o uguale a 0") 
 	private double prezzo;
 	
 	public Pizza() { }
